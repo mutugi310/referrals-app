@@ -15,7 +15,7 @@ export default function Footer() {
           title="kelvin"
           className="inline-block"
         >
-          <Button variant="link" className="">
+          <Button variant="link" className="cursor-pointer">
             Kelvin
           </Button>
         </a>
