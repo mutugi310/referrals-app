@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
-
+type ExcelFormat = "xlsx" | "xlsm" | "xlsb" | "xltx";
 interface TreeDownloadProps {
-  excelFormat: string;
-  setExcelFormat: (value: string) => void;
+  excelFormat: ExcelFormat;
+  setExcelFormat: (value: ExcelFormat) => void;
   onDownloadJSON: () => void;
   onDownloadExcel: () => void;
 }
@@ -24,7 +24,7 @@ export function TreeDownload({
         <div className="flex items-center space-x-2">
           <select
             value={excelFormat}
-            onChange={(e) => setExcelFormat(e.target.value)}
+            onChange={(e) => setExcelFormat(e.target.value as ExcelFormat)}
             className="border p-2"
           >
             <option value="xlsx">.xlsx</option>
