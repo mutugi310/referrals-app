@@ -3,7 +3,7 @@ import React from "react";
 
 function Tree() {
   return (
-    <div className=" container mx-auto min-h-screen bg-background text-foreground transition-colors">
+    <div className=" container mx-auto bg-background text-foreground transition-colors">
       <TreePage />
     </div>
   );

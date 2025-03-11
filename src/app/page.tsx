@@ -1,16 +1,39 @@
-"use client";
-
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ThemeProvider } from "@/components/theme-provider";
 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
 export default function Home() {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <div className="min-h-screen bg-background text-foreground transition-colors">
-        <main className="flex flex-col items-center justify-center flex-1 px-4">
-          <section className="text-center max-w-2xl mt-16">
-            <h2 className="text-5xl font-extrabold mb-4">
+      <main className="container mx-auto grid items-center justify-center p-6 sm:p-12  ">
+        <Card className="w-full max-w-lg sm:mt-12 sm:max-w-full ">
+          <CardHeader className="text-3xl sm:text-5xl font-extrabold mb-4">
+            <CardTitle>Referral Tree Manager</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <CardDescription className="text-lg mb-8">
+              Easily manage your referral team by initializing the tree and/or
+              adding, removing, and updating agents using an intuitive interface
+              built for managing your down-line.
+            </CardDescription>
+          </CardContent>
+          <CardFooter>
+            <Link href="/tree">
+              <Button>Get Started</Button>
+            </Link>
+          </CardFooter>
+        </Card>
+        {/* <section className="text-center max-w-2xl mt-16">
+            <h2 className="text-3xl sm:text-5xl font-extrabold mb-4">
               Build & Manage Your Referral Tree
             </h2>
             <p className="text-lg mb-8">
@@ -21,15 +44,8 @@ export default function Home() {
             <Link href="/tree">
               <Button className="px-8 py-4 text-lg">Get Started</Button>
             </Link>
-          </section>
-        </main>
-        <footer className="p-4 text-center">
-          <p className="text-sm">
-            © {new Date().getFullYear()} Referral Tree Manager. All rights
-            reserved.
-          </p>
-        </footer>
-      </div>
+          </section> */}
+      </main>
     </ThemeProvider>
   );
 }
