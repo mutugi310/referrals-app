@@ -98,7 +98,7 @@ export function useTree() {
           const data = JSON.parse(e.target?.result as string);
           setTree(data);
         } catch (err) {
-          console.error("Invalid JSON file");
+          console.error("Invalid JSON file", err);
         }
       };
       reader.readAsText(file);
