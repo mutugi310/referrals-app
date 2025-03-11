@@ -28,7 +28,7 @@ export default function Home() {
           </CardContent>
           <CardFooter>
             <Link href="/tree">
-              <Button>Get Started</Button>
+              <Button className="cursor-pointer">Get Started</Button>
             </Link>
           </CardFooter>
         </Card>

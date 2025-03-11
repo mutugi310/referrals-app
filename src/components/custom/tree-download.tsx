@@ -17,7 +17,11 @@ export function TreeDownload({
     <div className="space-y-4">
       <h2 className="text-2xl font-bold mb-4">Download Your Tree</h2>
       <div className="flex flex-col md:flex-row md:items-center md:space-x-4 space-y-4 md:space-y-0">
-        <Button variant="outline" onClick={onDownloadJSON}>
+        <Button
+          variant="outline"
+          className="cursor-pointer"
+          onClick={onDownloadJSON}
+        >
           Download Tree as JSON
         </Button>
 
@@ -32,7 +36,11 @@ export function TreeDownload({
             <option value="xlsb">.xlsb</option>
             <option value="xltx">.xltx</option>
           </select>
-          <Button variant="outline" onClick={onDownloadExcel}>
+          <Button
+            variant="outline"
+            className="cursor-pointer"
+            onClick={onDownloadExcel}
+          >
             Download Tree as Excel
           </Button>
         </div>
