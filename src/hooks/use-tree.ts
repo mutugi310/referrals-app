@@ -11,6 +11,8 @@ import {
   buildTreeFromFlatData,
 } from "../utils/tree";
 
+type ExcelFormat = "xlsx" | "xlsm" | "xlsb" | "xltx";
+
 export function useTree() {
   const [tree, setTree] = useState<Agent | null>(null);
   const [pioneerId, setPioneerId] = useState("");
@@ -19,7 +21,7 @@ export function useTree() {
   const [newAgentId, setNewAgentId] = useState("");
   const [newAgentFirstName, setNewAgentFirstName] = useState("");
   const [removeAgentId, setRemoveAgentId] = useState("");
-  const [excelFormat, setExcelFormat] = useState("xlsx");
+  const [excelFormat, setExcelFormat] = useState<ExcelFormat>("xlsx");
 
   const handleAddAgent = () => {
     if (!tree) {
@@ -97,7 +99,7 @@ export function useTree() {
         try {
           const data = JSON.parse(e.target?.result as string);
           setTree(data);
-        } catch (err) {
+        } catch (err: unknown) {
           console.error("Invalid JSON file", err);
         }
       };
@@ -126,8 +128,8 @@ export function useTree() {
               alert("Invalid tree data in Excel file.");
             }
           }
-        } catch (err) {
-          console.error("Error reading Excel file", err);
+        } catch {
+          console.error("Error reading Excel file");
         }
       };
       reader.readAsBinaryString(file);
@@ -156,7 +158,7 @@ export function useTree() {
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "Tree");
     XLSX.writeFile(workbook, `tree.${excelFormat}`, {
-      bookType: excelFormat as any,
+      bookType: excelFormat as XLSX.BookType,
     });
   };
 
